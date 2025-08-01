@@ -1,0 +1,29 @@
+Who Scored The Most Goals In World Cup 2002,Ronaldo,Messi,Hernandez,Van Nistelrooy,Ronaldo
+Who Won The 2006 FIFA World Cup,France,Germany,Italy,Brazil,Italy
+Who Holds The Record For Most Goals Scored In A Single World Cup Tournament,Klose,Ronaldo,Fontaine,Muller,Fontaine
+Which Country Has Won The Most UEFA European Championships,Germany,France,Spain,Italy,Spain
+Who Won The Golden Boot In World Cup 2010,Thomas Muller,David Villa,Suarez,Van Persie,David Villa
+Who Holds The Record For Most Goals In A Single Premier League Season,Alan Shearer,Mo Salah,Harry Kane,Cristiano Ronaldo,Alan Shearer
+Which Player Scored The Most Goals In The Premier League In 2022,Haaland,Kane,Salah,Nunez,Haaland
+Which Player Won The Most Ballon d'Or Awards,Cristiano Ronaldo,Messi,Platini,Zidane,Messi
+Which Team Won The 2014 World Cup,Germany,Brazil,Argentina,France,Germany
+Who Was The First African Player To Win The Ballon d'Or,George Weah,Riyad Mahrez,Sadio Mane,Didier Drogba,George Weah
+Which Player Holds The Record For Most Goals Scored In La Liga,Ronaldo,Messi,Raul,Benzema,Messi
+Who Was The First Team To Win Back-To-Back European Cups,Real Madrid,Bayern Munich,Barcelona,AC Milan,Real Madrid
+Who Won The 2008 UEFA Champions League,Manchester United,Chelsea,Liverpool,Barcelona,Manchester United
+Who Is The Only Player To Have Won The Premier League & FA Cup & Champions League & World Cup & European Championship,Michael Ballack,Steven Gerrard,Frank Lampard,Cesc Fabregas,Lampard
+Who Was The Captain Of The French National Team During Their 1998 World Cup Win,Zidane,Deschamps,Pires,Henry,Deschamps
+Which Player Scored The Fastest Hat-Trick In Premier League History,Mo Salah,Son Heung-min,Raheem Sterling,Tommy Smith,Son Heung-min
+Which Player Scored The Most Goals In World Cup 2018,Kane,Modric,Ronaldo,Mbappe,Kane
+Who Scored The Winning Goal In The Euro 2000 Final,David Trezeguet,Henri,Platini,Pires,Trezeguet
+Which Player Holds The Record For Most Goals In The FIFA World Cup Qualifiers,Hossam,Ronaldo,Muller,Zico,Hossam
+Who Scored The Most Goals In The 2020/21 Premier League Season,Harry Kane,Mo Salah,Son Heung-min,Bruno Fernandes,Harry Kane
+Who Won The First Women’s World Cup,USA,China,Sweden,France,USA
+Who Holds The Record For Most Assists In A Single Premier League Season,De Bruyne,Hazard,Silva,Henry,De Bruyne
+Which Player Was The First To Score In The Premier League’s History,Shearer,Le Tissier,Wright,Hasselbaink,Shearer
+Who Was The First Manager To Win The Premier League,Alex Ferguson,Arsene Wenger,Kenny Dalglish,Kevin Keegan,Alex Ferguson
+Who Won The First World Cup Golden Boot,Klose,Messi,Fontaine,Puskas,Fontaine
+Which Country Won The 2010 FIFA World Cup,Spain,Netherlands,Argentina,Italy,Spain
+Which Player Has The Most Appearances In The Premier League,Ryan Giggs,Frank Lampard,Steven Gerrard,John Terry,Gareth Barry
+Who Scored The Most Goals In The 2018/19 Premier League Season,Salah,Harry Kane,Mo Salah,Son Heung-min,Mo Salah
+Who Was The First Player To Win Ballon d'Or Five Times,Cristiano Ronaldo,Platini,Zidane,Messi,Cristiano Ronaldo

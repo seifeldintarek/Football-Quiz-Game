@@ -1,0 +1,49 @@
+Who Won The 2018 World Cup,France,Germany,Brazil,Argentina,France
+Who Is The All-Time Top Scorer Of The Egyptian Premier League,Hossam Hassan,Amr Zaki,Hassan ELShazli,Mostafa Mohamed,Hassan ELShazli
+Which Player Scored The Most Goals In The 2014 World Cup,James Rodriguez,Hernandez,Ronaldo,Kane,James Rodriguez
+Which Club Has Won The Most Egyptian Premier League Titles,Ahly,Zamalek,Ismaily,Tala'ea El-Gaish,Ahly
+Who Was The First African Player To Win The Premier League Player Of The Season,Didier Drogba,Sadio Mane,Mo Salah,Yaya Toure,Yaya Toure
+Who Holds The Record For Most Goals Scored In A Single Premier League Season,Haaland,Mo Salah,Alan Shearer,Harry Kane,Alan Shearer
+Who Won The Golden Boot In World Cup 1998,Christian Vieri,Zinedine Zidane,Thierry Henry,Davor Šuker,Davor Šuker
+Which Egyptian Player Played For Liverpool,Amr Zaki,Ahmed Hegazi,Mo Salah,Mohamed Elneny,Mo Salah
+Which Club Has The Most CAF Champions League Titles,Al Ahly,Zamalek,Esperance,Tunis,Al Ahly
+Who Is The First Egyptian To Play In The Premier League,Ahmed Fathi,Amr Zaki,Hossam Ghaly,Mohamed Nagy,Hossam Ghaly
+Who Won The 2002 World Cup,Brazil,Argentina,Italy,France,Brazil
+Which Country Hosted The 2014 FIFA World Cup,Brazil,South Africa,USA,France,Brazil
+Which Egyptian Player Played For Tottenham Hotspur,Hossam Ghaly,Mohamed Elneny,Amr Zaki,Ahmed Fathi,Hossam Ghaly
+Who Scored The First Goal In The 1998 World Cup Final,Zinedine Zidane,Thierry Henry,David Trezeguet,Emmanuel Petit,Zinedine Zidane
+Who Was The First Player To Score A Hat-Trick In The Premier League,Tommy Smith,Raheem Sterling,Mo Salah,Shearer,Tommy Smith
+Which Egyptian Club Won The Most CAF Confederation Cups,Zamalek,Ahly,Al Masry,Tanta,Zamalek
+Who Won The UEFA Champions League In 2015,Barcelona,Juventus,Real Madrid,Liverpool,Barcelona
+Which Club Does Mohamed Salah Currently Play For,Liverpool,Juventus,PSG,Barcelona,Liverpool
+Which Egyptian Player Was Known As “The Egyptian Messi”,Mohamed Nagy,Amr Zaki,Hossam Ghaly,Mohamed Salah,Mohamed Salah
+Who Won The 2010 FIFA World Cup,Spain,Netherlands,Brazil,Argentina,Spain
+Which Player Won The Ballon d'Or In 2018,Luka Modric,Cristiano Ronaldo,Messi,Neymar,Luka Modric
+Which Egyptian Player Played For Manchester City,Ahmed Hegazi,Amr Zaki,Ahmed Fathi,Mohamed Elneny,Ahmed Hegazi
+Who Was The First Player To Score In The Premier League Season,Raheem Sterling,Cristiano Ronaldo,Wayne Rooney,Alan Shearer,Wayne Rooney
+Which Player Holds The Record For Most Goals In The Egyptian Premier League,Hossam Hassan,Ahmed Fathi,Amr Zaki,Mostafa Mohamed,Hossam Hassan
+Which Egyptian Player Played For Roma,Ahmed Hegazi,Amr Zaki,Hossam Ghaly,Mohamed Salah,Mohamed Salah
+Who Was The First Player To Score 100 Goals In The Egyptian Premier League,Hossam Hassan,Ahmed Hegazi,Amr Zaki,Mostafa Mohamed,Hossam Hassan
+Who Won The 1994 FIFA World Cup,Brazil,Italy,Argentina,Germany,Brazil
+Which Player Holds The Record For Most Goals In The Africa Cup Of Nations,Riyad Mahrez,Sadio Mane,Didier Drogba,Samuel Eto’o,Samuel Eto’o
+Who Scored The Most Goals In The 2010/11 Premier League Season,Wayne Rooney,Robin van Persie,Danny Welbeck,Dimitar Berbatov,Dimitar Berbatov
+Which Club Has The Most Premier League Titles,Manchester United,Arsenal,Chelsea,Liverpool,Manchester United
+Who Won The First World Cup,Germany,Uruguay,Brazil,Italy,Uruguay
+Which Egyptian Player Was The Captain Of The National Team For The 2010 World Cup,Ahmed Fathi,Amr Zaki,Hossam Ghaly,Wael Gomaa,Wael Gomaa
+Which Egyptian Player Has The Most International Caps,Hossam Hassan,Ahmed Fathi,Wael Gomaa,Mostafa Mohamed,Hossam Hassan
+Who Holds The Record For Most Goals In The History Of The Egyptian National Team,Hossam Hassan,Mo Salah,Amr Zaki,Ahmed Hegazi,Hossam Hassan
+Who Was The First African Player To Win The Premier League Player Of The Year Award,Didier Drogba,Sadio Mane,Yaya Toure,Mo Salah,Yaya Toure
+Which Player Scored The Most Goals In The 2016/17 Premier League Season,Harry Kane,Mo Salah,Romelu Lukaku,Alexis Sanchez,Harry Kane
+Which Egyptian Club Has The Most Egyptian Premier League Titles,Al Ahly,Zamalek,Ismaily,Tala'ea El-Gaish,Al Ahly
+Who Won The 1998 FIFA World Cup,France,Brazil,Italy,Argentina,France
+Which Egyptian Player Won The Premier League Player of the Season Award in 2018,Amr Zaki,Hossam Ghaly,Mo Salah,Ahmed Fathi,Mo Salah
+Who Holds The Record For Most Goals In The World Cup Qualifiers,Messi,Ronaldo,Klose,Samuel Eto’o,Ronaldo
+Who Was The First Player To Score In The Premier League,Shearer,Le Tissier,Bruno Fernandes,Wright,Shearer
+Which Player Holds The Record For Most Goals In The Egyptian National Team,Mo Salah,Hossam Hassan,Amr Zaki,Ahmed Hegazi,Hossam Hassan
+Which Egyptian Player Scored In The 2018 World Cup,Ahmed Fathi,Hossam Ghaly,Amr Zaki,Mo Salah,Mo Salah
+Which Team Won The 2012 CAF Champions League,Al Ahly,Zamalek,Esperance,Tunis,Al Ahly
+Which Egyptian Player Scored The Most Goals In A Single Egyptian Premier League Season,Amr Zaki,Hossam Hassan,Mostafa Mohamed,Mo Salah,Hossam Hassan
+Who Scored The First-Ever Goal In The Premier League,Shearer,Le Tissier,Bruno Fernandes,Wright,Shearer
+Which Player Holds The Record For Most Goals In The World Cup Qualifiers,Messi,Ronaldo,Klose,Samuel Eto’o,Ronaldo
+Who Was The First Egyptian To Win The Premier League Player of the Year Award,Mo Salah,Hossam Ghaly,Ahmed Hegazi,Amr Zaki,Mo Salah
+Who Scored The Most Goals In The 2017/18 Premier League,Harry Kane,Romelu Lukaku,Mo Salah,Alexis Sanchez,Mo Salah
