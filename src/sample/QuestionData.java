@@ -1,96 +1,61 @@
 package sample;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class QuestionData {
 
-    int currentLine = 0;
+    private static final String SUPABASE_URL = "https://waqpnvxigvdxumvxqpvn.supabase.co";
+    private static final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhcXBudnhpZ3ZkeHVtdnhxcHZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwNzU0MDAsImV4cCI6MjA2OTY1MTQwMH0.GKLWTTT7DmiPUybOwRiJ04Gu2ID7wd3B4SKkPWD8Meo";
+    private static final String DEATH_URL = SUPABASE_URL + "/rest/v1/Death_Question?select=*";
+    private static final String TIME_URL = SUPABASE_URL + "/rest/v1/Time_Question?select=*";
 
-    private BufferedReader reader = null;
-
-
-    public <T> void writeInFile(T inputData, String fileName) {
-        String write = inputData.toString() + "\n"; //هنا لو عايز تكتب حاجه في الملف اكتبها هنا
-        byte[] data = write.getBytes();
-        Path p = Paths.get(fileName + ".txt");//هنا هتحط المكان اللي هتعمل فيه الملف ولازم يكون موجود في نفس المكان بتاع المشروع
-        try (OutputStream out = new BufferedOutputStream(Files.newOutputStream(p, StandardOpenOption.CREATE, StandardOpenOption.APPEND))) {
-            out.write(data, 0, data.length);
-        } catch (IOException e) {
-            System.err.println("error writing in file " + fileName);
-        }
+    public static List<Question> fetchDeathQuestions() {
+        return fetchQuestionsFromUrl(DEATH_URL);
     }
 
+    public static List<Question> fetchTimeQuestions() {
+        return fetchQuestionsFromUrl(TIME_URL);
+    }
 
-    public String readNextLine(String fileName) {
-        Path file = Paths.get(fileName + ".txt");
+    private static List<Question> fetchQuestionsFromUrl(String endpoint) {
+        List<Question> questions = new ArrayList<>();
 
         try {
-            // Initialize the reader if it's not already initialized
-            if (reader == null) {
-                InputStream in = Files.newInputStream(file);
-                reader = new BufferedReader(new InputStreamReader(in));
-            }
+            URL url = new URL(endpoint);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("apikey", API_KEY);
+            conn.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            conn.setRequestProperty("Content-Type", "application/json");
 
-            // Directly read the next line
-            String line = reader.readLine();
-            if (line != null) {
-//                String[] sp = line.split(",");
-                currentLine++; // Increment the line counter after reading
-//                System.out.println(currentLine);
-                return line;
-            }
-
-        } catch (IOException e) {
-            System.err.println("Error reading file " + fileName);
-        }
-
-        return null;
-    }
-
-
-    public List<Question> readAllQuestions(String fileName) {
-        List<Question> questions = new ArrayList<>();
-        Path file = Paths.get(fileName + ".txt");
-
-        try (BufferedReader reader = Files.newBufferedReader(file)) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-
-                String[] values = line.split(",");
-
-                if (values.length == 6) {
-                    String question = values[0].trim();
-                    String answer = values[5].trim();
-                    String[] choices = {values[1].trim(), values[2].trim(), values[3].trim(), values[4].trim()};
-
-                    Question q = new Question(question, answer, choices);
-                    questions.add(q);
-
-
-                } else {
-                    System.err.println("Skipping invalid line: " + line);
+            int responseCode = conn.getResponseCode();
+            if (responseCode == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder json = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null) {
+                    json.append(line);
                 }
+                in.close();
+
+                Gson gson = new Gson();
+                questions = gson.fromJson(json.toString(), new TypeToken<List<Question>>() {}.getType());
+            } else {
+                System.out.println("Failed to fetch questions: " + responseCode);
             }
-        } catch (IOException e) {
-            System.err.println("Error reading file " + fileName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return questions;
     }
-
-
-    public void stop() throws Exception {
-        if (reader != null) {
-            reader.close();
-        }
-    }
-
-
 }

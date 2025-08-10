@@ -74,7 +74,7 @@ class DeathChallenge implements Mode {
         AtomicReference<Button> selected = new AtomicReference<>(null);
 
 
-        List<Question> questions = Question.getDeathQuestions();
+        List<Question> questions = Question.deathQuestions;
         final int length = questions.size();
         String[] choices = questions.get(index.get()).getChoices();
 
@@ -353,7 +353,7 @@ class TimeChallenge implements Mode {
         AtomicInteger index = new AtomicInteger(0), score = new AtomicInteger(0);
         AtomicReference<Button> selected = new AtomicReference<>(null);
 
-        List<Question> questions = Question.getTimeQuestions();
+        List<Question> questions = Question.timeQuestions;
         final int length = questions.size();
         String[] choices = questions.get(index.get()).getChoices();
 

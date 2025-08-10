@@ -7,33 +7,33 @@ import java.util.Random;
 
 public abstract class Player {
 
-    private int score_deathChallenge, score_TimeChallenge;
+    private int death_score, time_score;
 
 
     Player(int ds, int ts)
     {
-        this.score_deathChallenge = ds;
-        this.score_TimeChallenge = ts;
+        this.death_score = ds;
+        this.time_score = ts;
     }
 
     public int getDeathScore()
     {
-        return this.score_deathChallenge;
+        return this.death_score;
     }
 
     public void setDeathScore(int score)
     {
-        this.score_deathChallenge = this.score_deathChallenge + score;
+        this.death_score = this.death_score + score;
     }
 
     public int getTimeScore(){
-        int score = this.score_TimeChallenge;
+        int score = this.time_score;
         return score;
     }
 
     public void setTimeScore(int score)
     {
-        this.score_TimeChallenge = this.score_TimeChallenge + score;
+        this.time_score = this.time_score + score;
     }
 
 
@@ -96,7 +96,7 @@ class PlayerwithAccount extends Player
     //methods
 
     public static List<PlayerwithAccount> getAllPlayers() throws SQLException {
-        users = PlayerData.getAllPLayers();
+        users = PlayerData.getAllPlayers();
         return users;
     }
 

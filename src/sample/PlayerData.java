@@ -1,133 +1,131 @@
 package sample;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.*;
+import java.lang.reflect.Modifier;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.*;
 
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 public class PlayerData {
 
+    static String SUPABASE_URL = "https://waqpnvxigvdxumvxqpvn.supabase.co";
+    static String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhcXBudnhpZ3ZkeHVtdnhxcHZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwNzU0MDAsImV4cCI6MjA2OTY1MTQwMH0.GKLWTTT7DmiPUybOwRiJ04Gu2ID7wd3B4SKkPWD8Meo";
+    static String TABLE_URL = SUPABASE_URL + "/rest/v1/players";
 
-    public static List getAllPLayers() throws SQLException {
+    public static List<PlayerwithAccount> getAllPlayers() {
+        List<PlayerwithAccount> players = new ArrayList<>();
 
+        try {
+            URL url = new URL(TABLE_URL + "?select=*");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("apikey", API_KEY);
+            conn.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            conn.setRequestProperty("Content-Type", "application/json");
 
-        String url = "jdbc:mysql://localhost:3306/userdata";
-        String username = "root";
-        String password = "seif2004";
-
-        List<PlayerwithAccount> allPlayers = new ArrayList<>() ;
-
-        // Try-with-resources to automatically close resources
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
-//            System.out.println("Connected to the database!");
-
-            // Example query
-            String query = "SELECT * FROM user";
-
-            // Execute query
-            try (Statement statement = connection.createStatement()) {
-                ResultSet resultSet = statement.executeQuery(query);
-
-                // Process the result set
-                while (resultSet.next()) {
-                    String name = resultSet.getString("username");
-                    String pass = resultSet.getString("password");
-                    int t_score = Integer.parseInt(resultSet.getString("timeScore"));
-                    int d_score = Integer.parseInt(resultSet.getString("deathScore"));
-
-
-
-                    allPlayers.add( new PlayerwithAccount(name,pass,d_score,t_score) );
-
-
+            if (conn.getResponseCode() == 200) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder json = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null) {
+                    json.append(line);
                 }
-                resultSet.close();
+                in.close();
+
+                Gson gson = new Gson();
+                players = gson.fromJson(json.toString(), new TypeToken<List<PlayerwithAccount>>() {}.getType());
+            } else {
+                System.out.println("Failed to fetch players: " + conn.getResponseCode());
             }
 
-            return allPlayers;
-
+        } catch (Exception e) {
+            System.out.println("Error fetching players: " + e.getMessage());
         }
 
-
+        return players;
     }
 
-    public static void addPlayer(PlayerwithAccount player)
-    {
-        String url = "jdbc:mysql://localhost:3306/userdata";
-        String username = "root";
-        String password = "seif2004";
+    public static void addPlayer(PlayerwithAccount player) {
+        try {
+            URL url = new URL(TABLE_URL);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            conn.setRequestProperty("apikey", API_KEY);
+            conn.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Prefer", "return=minimal");
 
-        try(Connection connection = DriverManager.getConnection(url,username,password))
-        {
+            // Exclude transient fields (like created_at)
+            Gson gson = new GsonBuilder()
+                    .excludeFieldsWithModifiers(Modifier.STATIC)
+                    .create();
+            String jsonInput = gson.toJson(player);
+            System.out.println("Sending JSON:\n" + jsonInput);
 
-            String query = "INSERT INTO user (username, password) VALUES (?, ?)";
-            try(PreparedStatement statement = connection.prepareStatement(query))
-            {
-                statement.setString(1, player.getUsername());
-                statement.setString(2, player.getPassword());
-
-
-                statement.executeUpdate();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error adding a player");
-            }
-
-       connection.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error in connecting to database , addplayer method");
-        }
-
-
-    }
-
-
-
-    public static void setScore (PlayerwithAccount player,int d_score , int t_score)
-    {
-        String url = "jdbc:mysql://localhost:3306/userdata";
-        String username = "root";
-        String password = "seif2004";
-
-        try(Connection connection = DriverManager.getConnection(url,username,password))
-        {
-
-            String t_query = "UPDATE user SET timeScore = timeScore + ? WHERE username = ?";
-            String d_query = "UPDATE user SET deathScore = deathScore + ? WHERE username = ?";
-
-            try (PreparedStatement statement = connection.prepareStatement(t_query)) {
-                statement.setInt(1, t_score);
-                statement.setString(2, player.getUsername());
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error updating t_score");
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInput.getBytes("utf-8");
+                os.write(input, 0, input.length);
             }
 
-            try (PreparedStatement statement = connection.prepareStatement(d_query)) {
-                statement.setInt(1, d_score);
-                statement.setString(2, player.getUsername());
-
-                statement.executeUpdate();
+            int response = conn.getResponseCode();
+            if (response != 201) {
+                System.out.println("Failed to add player: HTTP code " + response);
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                }
+            } else {
+                System.out.println("Player added successfully!");
             }
-            catch (Exception e)
-            {
-                System.out.println("Error updating d_score");
-            }
 
-
-            connection.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error in connecting to database , addplayer method");
+        } catch (Exception e) {
+            System.out.println("Error adding player: " + e.getMessage());
         }
     }
 
 
+    public static void setScore(PlayerwithAccount player, int d_score, int t_score) {
+        try {
+            // Update by username (must be unique or indexed)
+            String encodedUsername = java.net.URLEncoder.encode("eq." + player.getUsername(), "UTF-8");
+            URL url = new URL(TABLE_URL + "?username=" + encodedUsername);
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("PATCH");
+            conn.setDoOutput(true);
+            conn.setRequestProperty("apikey", API_KEY);
+            conn.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            conn.setRequestProperty("Content-Type", "application/json");
+
+            JsonObject scores = new JsonObject();
+            scores.addProperty("death_score", d_score);
+            scores.addProperty("time_score", t_score);
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = scores.toString().getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int response = conn.getResponseCode();
+            if (response != 204) {
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"))) {
+                    StringBuilder responseBuilder = new StringBuilder();
+                    String responseLine;
+                    while ((responseLine = br.readLine()) != null) {
+                        responseBuilder.append(responseLine.trim());
+                    }
+                    System.out.println("Failed to update scores: HTTP code " + response);
+                    System.out.println(responseBuilder.toString());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error updating scores: " + e.getMessage());
+        }
+    }
 }

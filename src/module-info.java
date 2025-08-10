@@ -7,6 +7,7 @@ module FootballQuizGame {
     requires java.desktop;
     requires javafx.media;
     requires java.sql;
+    requires com.google.gson;
 
 
     opens sample;
