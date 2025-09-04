@@ -1,18 +1,17 @@
 package sample;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -20,7 +19,6 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Random;
@@ -92,7 +90,7 @@ public class GameScenes {
         start.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                final  Guest guest = new Guest();
+                final Guest guest = new Guest();
 
                 GameScenes.ChooseMode(Optional.of(guest),Optional.empty(), stage);
             }
@@ -205,7 +203,7 @@ public class GameScenes {
     }
 
 
-    static void ChooseMode(Optional<Guest> guestOP, Optional<PlayerwithAccount> playerOP, Stage stage)
+    public static void ChooseMode(Optional<Guest> guestOP, Optional<PlayerwithAccount> playerOP, Stage stage)
     {
         final Guest guest = guestOP.orElse(null);
         final  PlayerwithAccount player = playerOP.orElse(null);

@@ -3,12 +3,8 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import java.io.File;
-import java.io.IOException;
+
 import java.sql.SQLException;
-import java.util.List;
 
 
 public class Main extends Application {
